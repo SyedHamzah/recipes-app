@@ -1,0 +1,159 @@
+openapi: "3.0.1"
+
+info:
+  title: "Recipes Application API"
+  version: "1"
+  description: Recipes Application API
+
+servers:
+  - url: http://localhost:8080/api
+    description: Local server
+
+paths:
+  /recipe:
+    post:
+      summary: Create recipe
+      operationId: createRecipe
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecipeDto'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecipeDto'
+    get:
+      summary: Query recipes based on parameters
+      operationId: queryRecipes
+      parameters:
+        - name: is-vegetarian
+          in: query
+          required: false
+          schema:
+            type: boolean
+        - name: serving
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - name: include-ingredient
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: exclude-ingredient
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: instruction
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecipeDtoList'
+
+
+  /recipe/{id}:
+    delete:
+      summary: Delete Recipe By Id
+      operationId: deleteRecipeById
+      parameters:
+        - name: id
+          in: path
+          description: Unique Id of an Recipe
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        204:
+          description: Deleted
+    get:
+      summary: Get Recipe By Id
+      operationId: getRecipeById
+      parameters:
+        - name: id
+          in: path
+          description: Unique Id of an Recipe
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecipeDto'
+    put:
+      summary: Update recipe
+      operationId: updateRecipe
+      parameters:
+        - name: id
+          in: path
+          description: Unique Id of an Recipe
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecipeDto'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecipeDto'
+
+components:
+  schemas:
+    RecipeDto:
+      type: object
+      description: Data element for Recipe
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        isVegetarian:
+          type: boolean
+        serving:
+          type: integer
+          format: int32
+        ingredients:
+          type: array
+          items:
+            type: string
+        instructions:
+          type: string
+    RecipeDtoList:
+      type: array
+      items:
+        type: RecipeDto
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string

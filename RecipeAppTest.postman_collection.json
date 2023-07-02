@@ -1,0 +1,455 @@
+{
+	"info": {
+		"_postman_id": "023befc4-47c5-4fd1-b15d-fec5e4af6265",
+		"name": "RecipeAppTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Butter Chicken",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Butter Chicken\",\n    \"serving\": 5,\n    \"ingredients\": [\"butter\", \"chicken\", \"crushed chillies\", \"salt\", \"onion\", \"tomato\"],\n    \"instructions\": \"Make butter chicken, eat it, stay happy\",\n    \"isVegetarian\": \"false\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/recipe",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"recipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Chicken Tikka",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Chicken tikka\",\n    \"serving\": 2,\n    \"ingredients\": [\"butter\", \"chicken\", \"salt\", \"onion\", \"tomato\", \"charcoal\", \"garam masala\", \"curd\"],\n    \"instructions\": \"Make Chicken tikka, eat it, stay happy\",\n    \"isVegetarian\": \"false\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/recipe",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"recipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Biryani",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"biryani_id\", jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"biryani\",\n    \"serving\": 6,\n    \"ingredients\": [\"chicken\", \"basmati rice\", \"oil\", \"masala\", \"color\", \"curd\", \"pickle\"],\n    \"instruction\": \"Too many instructions here\",\n    \"isVegetarian\": \"false\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/recipe",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"recipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Aloo Paratha",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"paratha_id\", jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Aloo Paratha\",\n    \"serving\": 2,\n    \"ingredients\": [\"Aloo\", \"oil\", \"flour\", \"green chillies\"],\n    \"instruction\": \"Boil potatoes. Mash when cold mixed with salt, chillies and pinch of garam masala and coriander leaves. Prepare dough, roll the flour into chapaties (tortillas), fill it with a masala mix and roll again as a stuffed paratha. Fry on a shallow pan in butter or oil until smi cripsy on both sides\",\n    \"isVegetarian\": \"true\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/recipe",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"recipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Palak Paneer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Palak Paneer\",\n    \"serving\": 4,\n    \"ingredients\": [\"Cottage Cheese\", \"Spinach\", \"oil\", \"masala\", \"tomato\"],\n    \"instruction\": \"blah blah blah blah\",\n    \"isVegetarian\": \"true\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/recipe",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"recipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Dal Tadka",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"daal_id\", jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Dal Tadka\",\n    \"serving\": 4,\n    \"ingredients\": [\"Lentil\", \"salt\", \"red chilli powder\",  \"oil\", \"Ghee\", \"Garlic\"],\n    \"instruction\": \"Pretty easy stuff\",\n    \"isVegetarian\": \"true\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/recipe",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"recipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Recipe By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/recipe/{{biryani_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"recipe",
+						"{{biryani_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Recipes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/recipe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"recipe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "APP Delete Recipe",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAA_6tWyiwuVrJSSioqzUssLslU0lHKTCxRsjI0M7U0MDIxtTTSUSotTi3KS8xNBSorSMzPyVeqBQBCdu5ZNgAAAA.wYdbCpC6AlW4DYJARWIog6WQMr3bTSInLFgRv8vWc_A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/recipe/{{daal_id}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"recipe",
+						"{{daal_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Biryani Ingredients",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ingredients\": [\"chicken\", \"basmati rice\", \"oil\", \"masala\", \"color\", \"curd\", \"onions\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/recipe/{{biryani_id}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"recipe",
+						"{{biryani_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Aloo Paratha Serving and ingredients",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"serving\": 3,\n    \"ingredients\": [\"Aloo\", \"oil\", \"flour\", \"green chillies\", \"garam masala\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/recipe/{{paratha_id}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"recipe",
+						"{{paratha_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Vegetarian Recipes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAA_6tWyiwuVrJSSioqzUssLslU0lHKTCxRsjI0M7U0MDK0MDXWUSotTi3KS8xNBSorSMzPyVeqBQDFs2NQNgAAAA.fzif08goOBa9IGB7Oaig33IdnV--QIrjUtnc2RAv9OM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/recipe?is-vegetarian=true",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"recipe"
+					],
+					"query": [
+						{
+							"key": "is-vegetarian",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Chicken Recipes serving 4",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAA_6tWyiwuVrJSSioqzUssLslU0lHKTCxRsjI0M7U0MDK1sDTVUSotTi3KS8xNBSorSMzPyVeqBQBcnboqNgAAAA.3KCJ9rUIcxofmS3C5uLBezRcG38zD_oFfS-SsSVj0W4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/recipe?servings=4&include-ingredient=chicken",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"recipe"
+					],
+					"query": [
+						{
+							"key": "servings",
+							"value": "4"
+						},
+						{
+							"key": "include-ingredient",
+							"value": "chicken"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recipes excluding color ingredient, instruction contains marinade",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInppcCI6IkdaSVAifQ.H4sIAAAAAAAA_6tWyiwuVrJSSioqzUssLslU0lHKTCxRsjI0M7U0MDK1sDTVUSotTi3KS8xNBSorSMzPyVeqBQBcnboqNgAAAA.3KCJ9rUIcxofmS3C5uLBezRcG38zD_oFfS-SsSVj0W4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/recipe?exclude-ingredient=color&instruction=marinate",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"recipe"
+					],
+					"query": [
+						{
+							"key": "exclude-ingredient",
+							"value": "color"
+						},
+						{
+							"key": "instruction",
+							"value": "marinate"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

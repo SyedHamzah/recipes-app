@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  elasticsearch:
+    image: elasticsearch:8.8.1
+    container_name: elasticsearch
+    volumes:
+      - ./esdata:/usr/share/elasticsearch/data
+      #- ./esconfig:/usr/share/elasticsearch/config
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      node.name: elasticsearch
+      xpack.security.enabled: false
+      xpack.security.http.ssl.enabled: false
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+      ELASTIC_PASSWORD: changeme
+      # Use single node discovery in order to disable production mode and avoid bootstrap checks.
+      # see: https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
+      discovery.type: single-node
+    restart: unless-stopped
