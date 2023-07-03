@@ -31,7 +31,7 @@ Explanation of Recipe rest application's system architecture and the rationale b
 Below factors make the data schema lean towards noSQL (as per the requirements)
 1. Ability to free text search within instructions
 2. ingredients - There is a choice to model ingredient as a separate entity and compose it in Recipe, if we are want to normalize data model. However, this complicates API usage, where the user will have to store/retrieve ingredients first and then use the Ids to define relations. It would be okay to have some level of data duplication and rather keep ingredients are a list of string within recipe.
-3. Lack of transactional nature of data - purely an assumption.
+3. Lack of transactional nature of data - as assumption made from current requirements.
 ### Data Model
 I have defined a single data model - 
 
@@ -70,6 +70,9 @@ Mature ORM supports elastic search, reduces boilerplate code again.
 For integration tests I have picked postman due to:
 1. Interoperability with QA team
 2. Test isolation at REST level (indifferent to Java language)
+
+#### 4. ElasticSearch
+ElasticSearch has inbuilt free text search capabilities which is quite faster than a SQL "like" search. We can extend current customFilter to even enable fuzzy search by supplying word distance in the query.
 
 ## TODO:
 This list of items are a must for the application to be production ready but not done due to lack of time.
