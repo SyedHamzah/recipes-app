@@ -87,6 +87,7 @@ This list of items are a must for the application to be production ready but not
    1. Ideally app should be run along with ES within same docker-compose.
 5. logging - ELK or similar log aggregation
 6. UML diagrams - Class and Sequence diagrams
+7. Custom exceptions - Exception handler needs to be added to catch and rethrow after wrapping into custom exceptions
 
 ### Good to have:
 These are good to have items in addition to the above list.
